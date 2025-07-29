@@ -86,9 +86,8 @@ class StagePositioningDebug extends FlxState
 		camHUD.bgColor.alpha = 0;
 		camGame = new FlxCamera();
 		camGame.zoom = 0.7;
-		FlxG.cameras.add(camGame);
+		FlxG.cameras.add(camGame, true);
 		FlxG.cameras.add(camHUD);
-		FlxCamera.defaultCameras = [camGame];
 		camGame.follow(camFollow);
 
 		posText = new FlxText(0, 0);
@@ -107,7 +106,7 @@ class StagePositioningDebug extends FlxState
 			if (camGame.zoom > 0.11) // me when floating point error
 				camGame.zoom -= 0.1;
 		}
-        FlxG.watch.addQuick('Camera Zoom', camGame.zoom);
+		FlxG.watch.addQuick('Camera Zoom', camGame.zoom);
 
 		if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L)
 		{

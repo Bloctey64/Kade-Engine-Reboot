@@ -425,6 +425,169 @@ class Stage
 					swagBacks['stageCurtains'] = stageCurtains;
 					toAdd.push(stageCurtains);
 				}
+			case 'tank':
+				{
+					camZoom = 0.9;
+					curStage = 'tank';
+
+					// var bgStreet:FlxSprite = new FlxSprite(repositionShit).loadGraphic(Paths.image('weeb/weebStreet', 'week6'));
+					// bg.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool', 'week6');
+
+					var tankSky:FlxSprite = new FlxSprite(-400, -400).loadGraphic(Paths.image('tankSky', 'week7'));
+					tankSky.antialiasing = FlxG.save.data.antialiasing;
+					tankSky.scrollFactor.set(0, 0);
+					swagBacks['tankSky'] = tankSky;
+					toAdd.push(tankSky);
+					if (FlxG.save.data.quality)
+					{
+						var tankClouds:FlxSprite = new FlxSprite(FlxG.random.int(-700, -100),
+							FlxG.random.int(-20, 20)).loadGraphic(Paths.image('tankClouds', 'week7'));
+						tankClouds.velocity.x = FlxG.random.float(5, 15);
+						tankClouds.moves = true;
+						tankClouds.antialiasing = FlxG.save.data.antialiasing;
+						tankClouds.scrollFactor.set(0.1, 0.1);
+
+						swagBacks['tankClouds'] = tankClouds;
+						toAdd.push(tankClouds);
+
+						var tankMountains:FlxSprite = new FlxSprite(-300, -20).loadGraphic(Paths.image('tankMountains', 'week7'));
+						tankMountains.antialiasing = FlxG.save.data.antialiasing;
+						tankMountains.setGraphicSize(Std.int(tankMountains.width * 1.2));
+						tankMountains.updateHitbox();
+						tankMountains.scrollFactor.set(0.2, 0.2);
+						swagBacks['tankMountains'] = tankMountains;
+						toAdd.push(tankMountains);
+
+						var tankBuildings:FlxSprite = new FlxSprite(-200, 0).loadGraphic(Paths.image('tankBuildings', 'week7'));
+						tankBuildings.setGraphicSize(Std.int(tankBuildings.width * 1.1));
+						tankBuildings.updateHitbox();
+						tankBuildings.scrollFactor.set(0.30, 0.30);
+						tankBuildings.antialiasing = FlxG.save.data.antialiasing;
+						swagBacks['tankBuildings'] = tankBuildings;
+						toAdd.push(tankBuildings);
+					}
+
+					var tankRuins:FlxSprite = new FlxSprite(-200, 0).loadGraphic(Paths.image('tankRuins', 'week7'));
+					tankRuins.setGraphicSize(Std.int(1.1 * tankRuins.width));
+					tankRuins.updateHitbox();
+					tankRuins.antialiasing = FlxG.save.data.antialiasing;
+					tankRuins.scrollFactor.set(0.35, 0.35);
+					swagBacks['tankRuins'] = tankRuins;
+					toAdd.push(tankRuins);
+
+					if (FlxG.save.data.quality)
+					{
+						var smokeLeft:FlxSprite = new FlxSprite(-200, -100);
+						smokeLeft.antialiasing = FlxG.save.data.antialiasing;
+						smokeLeft.scrollFactor.set(0.4, 0.4);
+						smokeLeft.frames = Paths.getSparrowAtlas('smokeLeft', 'week7');
+						smokeLeft.animation.addByPrefix('idle', 'SmokeBlurLeft', 24, true);
+						smokeLeft.animation.play('idle');
+						swagBacks['smokeLeft'] = smokeLeft;
+						toAdd.push(smokeLeft);
+
+						var smokeRight:FlxSprite = new FlxSprite(1100, -100);
+						smokeRight.antialiasing = FlxG.save.data.antialiasing;
+						smokeRight.scrollFactor.set(0.4, 0.4);
+						smokeRight.frames = Paths.getSparrowAtlas('smokeRight', 'week7');
+						smokeRight.animation.addByPrefix('idle', 'SmokeRight', 24, true);
+						smokeRight.animation.play('idle');
+						swagBacks['smokeRight'] = smokeRight;
+						toAdd.push(smokeRight);
+
+						var tankWatchTower:FlxSprite = new FlxSprite(100, 50);
+						tankWatchTower.antialiasing = FlxG.save.data.antialiasing;
+						tankWatchTower.frames = Paths.getSparrowAtlas('tankWatchtower', 'week7');
+						tankWatchTower.animation.addByPrefix('idle', 'watchtower gradient color', 24);
+						tankWatchTower.animation.play('idle');
+						tankWatchTower.scrollFactor.set(0.5, 0.5);
+						tankWatchTower.active = true;
+						swagBacks['tankWatchTower'] = tankWatchTower;
+						toAdd.push(tankWatchTower);
+					}
+					var tankGround:FlxSprite = new FlxSprite(300, 300);
+					tankGround.scrollFactor.set(0.5, 0.5);
+					tankGround.antialiasing = FlxG.save.data.antialiasing;
+					tankGround.frames = Paths.getSparrowAtlas('tankRolling', 'week7');
+					tankGround.animation.addByPrefix('idle', 'BG tank w lighting', 24, true);
+					tankGround.animation.play('idle');
+					swagBacks['tankGround'] = tankGround;
+					toAdd.push(tankGround);
+
+					var tankmanRun = new FlxTypedGroup<TankmenBG>();
+					swagBacks['tankmanRun'] = tankmanRun;
+					toAdd.push(tankmanRun);
+
+					var tankField:FlxSprite = new FlxSprite(-420, -150).loadGraphic(Paths.image('tankGround', 'week7'));
+					tankField.antialiasing = FlxG.save.data.antialiasing;
+					tankField.setGraphicSize(Std.int(1.15 * tankField.width));
+					tankField.updateHitbox();
+					swagBacks['tankField'] = tankField;
+					toAdd.push(tankField);
+
+					var foreGround0 = new FlxSprite(-500, 600);
+					foreGround0.scrollFactor.set(1.7, 1.5);
+					foreGround0.antialiasing = FlxG.save.data.antialiasing;
+					foreGround0.frames = Paths.getSparrowAtlas('tank0', 'week7');
+					foreGround0.animation.addByPrefix('idle', 'fg tankhead far right', 24);
+					foreGround0.animation.play('idle');
+					swagBacks['foreGround0'] = foreGround0;
+					layInFront[2].push(foreGround0);
+
+					if (FlxG.save.data.quality)
+					{
+						var foreGround1 = new FlxSprite(-300, 750);
+						foreGround1.scrollFactor.set(2, 0.2);
+						foreGround1.antialiasing = FlxG.save.data.antialiasing;
+						foreGround1.frames = Paths.getSparrowAtlas('tank1', 'week7');
+						foreGround1.animation.addByPrefix('idle', 'fg tankhead', 24);
+						foreGround1.animation.play('idle');
+						swagBacks['foreGround1'] = foreGround1;
+						layInFront[2].push(foreGround1);
+					}
+
+					var foreGround2 = new FlxSprite(450, 940);
+					foreGround2.scrollFactor.set(1.5, 1.5);
+					foreGround2.antialiasing = FlxG.save.data.antialiasing;
+					foreGround2.frames = Paths.getSparrowAtlas('tank2', 'week7');
+					foreGround2.animation.addByPrefix('idle', 'foreground man', 24);
+					foreGround2.animation.play('idle');
+					swagBacks['foreGround2'] = foreGround2;
+					layInFront[2].push(foreGround2);
+
+					if (FlxG.save.data.quality)
+					{
+						var foreGround3 = new FlxSprite(1300, 900);
+						foreGround3.scrollFactor.set(1.5, 1.5);
+						foreGround3.antialiasing = FlxG.save.data.antialiasing;
+						foreGround3.frames = Paths.getSparrowAtlas('tank4', 'week7');
+						foreGround3.animation.addByPrefix('idle', 'fg tankman', 24);
+						foreGround3.animation.play('idle');
+						swagBacks['foreGround3'] = foreGround3;
+						layInFront[2].push(foreGround3);
+					}
+
+					var foreGround4 = new FlxSprite(1620, 710);
+					foreGround4.scrollFactor.set(1.5, 1.5);
+					foreGround4.antialiasing = FlxG.save.data.antialiasing;
+					foreGround4.frames = Paths.getSparrowAtlas('tank5', 'week7');
+					foreGround4.animation.addByPrefix('idle', 'fg tankhead far right', 24);
+					foreGround4.animation.play('idle');
+					swagBacks['foreGround4'] = foreGround4;
+					layInFront[2].push(foreGround4);
+
+					if (FlxG.save.data.quality)
+					{
+						var foreGround5 = new FlxSprite(1400, 1290);
+						foreGround5.scrollFactor.set(1.5, 1.5);
+						foreGround5.antialiasing = FlxG.save.data.antialiasing;
+						foreGround5.frames = Paths.getSparrowAtlas('tank3', 'week7');
+						foreGround5.animation.addByPrefix('idle', 'fg tankhead', 24);
+						foreGround5.animation.play('idle');
+						swagBacks['foreGround5'] = foreGround5;
+						layInFront[2].push(foreGround5);
+					}
+				}
 		}
 	}
 }

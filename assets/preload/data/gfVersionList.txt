@@ -2,3 +2,5 @@ gf
 gf-car
 gf-christmas
 gf-pixel
+gf-tank
+gf-pico

@@ -661,6 +661,29 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+			case 'tank':
+				boyfriend.x = 810;
+				boyfriend.y = 450;
+
+				dad.x = 20;
+				dad.y = 340;
+
+				camPos.set(599, 529);
+
+				if (SONG.gfVersion == 'gf-tank')
+				{
+					gf.x = 200;
+					gf.y = 65;
+				}
+				else if (SONG.gfVersion == 'gf-pico')
+				{
+					gf.x = 320;
+					gf.y = -60;
+				}
+				else
+				{
+					trace("that's not a week 7 girlfreidn you silly");
+				}
 		}
 
 		if (loadRep)
@@ -861,6 +884,8 @@ class PlayState extends MusicBeatState
 					healthBar.createFilledBar(0xFFF76D6D, 0xFF0097C4);
 				case 'spirit':
 					healthBar.createFilledBar(0xFFAD0505, 0xFF0097C4);
+				case 'tankman':
+					healthBar.createFilledBar(0xE1E1E1, 0xFF0097C4);
 			}
 		}
 		else
@@ -2487,6 +2512,11 @@ class PlayState extends MusicBeatState
 										if (!triggeredAlready)
 										{
 											gf.playAnim('cheer');
+											if (SONG.player2 == "tankman")
+											{
+												trace("ugh momento");
+												dad.playAnim('good');
+											}
 											triggeredAlready = true;
 										}
 									}
