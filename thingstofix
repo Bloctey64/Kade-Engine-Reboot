@@ -1,0 +1,6 @@
+source/LuaClass.hx:35: characters 46-58 : Type not found : StatePointer
+source/LuaClass.hx:1669: characters 42-54 : Type not found : StatePointer
+source/LuaClass.hx:1469: characters 42-54 : Type not found : StatePointer
+source/LuaClass.hx:1144: characters 42-54 : Type not found : StatePointer
+source/LuaClass.hx:855: characters 41-53 : Type not found : StatePointer
+source/LuaClass.hx:635: characters 40-52 : Type not found : StatePointer
