@@ -399,12 +399,14 @@ class PlayState extends MusicBeatState
 		camNotes = new FlxCamera();
 		camNotes.bgColor.alpha = 0;
 
-		FlxG.cameras.add(camGame, true);
+		FlxG.cameras.reset(camGame);
+		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camSustains);
 		FlxG.cameras.add(camNotes);
-		FlxG.cameras.add(camHUD);
 
 		camHUD.zoom = PlayStateChangeables.zoom;
+
+		FlxG.cameras.add(camGame, true);
 
 		persistentUpdate = true;
 		persistentDraw = true;
